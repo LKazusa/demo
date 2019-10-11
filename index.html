@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // const pointSet = ['a', 'b', 'c', 'd', 'e'];
+        // const relateSet = [
+        //     [0, 5, 6, 13, Infinity],
+        //     [5, 0, Infinity, 7, Infinity],
+        //     [6, Infinity, 0, 10, Infinity],
+        //     [13, 7, 10, 0, 4],
+        //     [Infinity, Infinity, Infinity, 4, 0]
+        // ];
+
+        // class Node {
+        //     constructor(value) {
+        //         this.value = value;
+        //         this.neighber = []
+        //     }
+        // }
+        // function isResult(value, resultSet){
+        //     for(let i in resultSet){
+        //         if(resultSet[i].value == value) return false
+        //     }
+        //     return true
+        // }
+        // function getNode(value,resultSet){
+        //     for(let i in resultSet){
+        //         if(resultSet[i].value == value) return resultSet[i]
+        //     }
+        // }
+        // function findSmall(pointSet, relateSet, resultSet) {
+        //     let distance = Infinity;
+        //     let node1 = null;
+        //     let node2 = null;
+        //     let tempi,tempj;
+        //     for (let i = 0; i < relateSet.length; i++) {
+        //         for(let j = 0;j< relateSet[i].length;j++){
+        //             if(relateSet[i][j] > 0 && relateSet[i][j] < Infinity && distance > relateSet[i][j]){
+        //                if(isResult(pointSet[i],resultSet) || isResult(pointSet[j],resultSet)){
+        //                     node1 = pointSet[i];
+        //                     node2 = pointSet[j];
+        //                     distance = relateSet[i][j];
+        //                     tempi = i;
+        //                     tempj = j;
+        //                }
+        //             }
+        //         }
+        //     }
+        //     relateSet[tempi][tempj] = Infinity;
+        //     let start = isResult(node1) ? new Node(node1) :getNode(node1,resultSet) ;
+        //     let end = isResult(node2) ? new Node(node2) : getNode(node2,resultSet);
+        //     start.neighber.push(end);
+        //     end.neighber.push(start);
+        //     if(isResult(node1)) resultSet.push(start);
+        //     if(isResult(node2)) resultSet.push(end)
+        // }
+        // function kruskal(pointSet, relateSet) {
+        //     let resultSet = [];
+        //     while (true) {
+        //         console.log(resultSet)
+        //         if (resultSet.length >= pointSet.length) break;
+        //         findSmall(pointSet, relateSet, resultSet)
+        //     }
+        //     return resultSet;
+        // }
+        // console.log( kruskal(pointSet,relateSet) )
+
+
+
+
+
+
+
+
+
+        // let arr = [2, 3, 4, 1, 5, 6, 9, 7, 8, 0];
+        // class Node {
+        //     constructor(value) {
+        //         this.value = value;
+        //         this.left = null;
+        //         this.right = null;
+        //     }
+        // }
+
+        // function addNode(root, num) {
+        //     if(!root.value){
+        //         return null
+        //     }
+        //     if(root.value < num){
+        //         if(root.right == null)
+        //             root.right = new Node(num)
+        //         else
+        //             addNode(root.right,num)
+        //     }else{
+        //         if(root.left == null)
+        //             root.left = new Node(num)
+        //         else
+        //             addNode(root.left,num)
+        //     }
+        // }
+
+        // function buildBinarySearchTree(root,arr) {
+        //     if (arr.length == 0 || !arr) return false;
+        //     for (let i = 1; i < arr.length; i++) {
+        //         addNode(root,arr[i])
+        //     }
+        // }
+        // function searchTree(root, target){
+        //     if(root == null) return false;
+        //     if(root.value === target) return true;
+        //     if(root.value > target) return searchTree(root.left,target);
+        //     else return searchTree(root.right, target)
+        // }
+
+        // let root = new Node(arr[0]);
+        // buildBinarySearchTree(root,arr);
+        // console.log(searchTree(root,3))
+
+
+
+        class Node{
+            constructor(value){
+                this.value = value;
+                this.next = null;
+            }
+        }
+        let a = new Node('a');
+        let b = new Node('b');
+        let c = new Node('c');
+        let d = new Node('d');
+
+        a.next = b;
+        b.next = c;
+        c.next = d;
+
+        function reverse(root){
+            if(root.next.next == null){
+                let oldNext = root.next;
+                root.next.next = root;
+                root.next = null; 
+                return oldNext;
+            }else{
+                let oldnNext = reverse(root.next);
+                root.next.next = root;
+                root.next = null;
+                return oldnNext;
+            }
+        }
+        console.log(reverse(a))
+    </script>
+</body>
+
+</html>
